@@ -42,16 +42,15 @@
         <!-- Navigation Links -->
         <nav class="nav-links">
 
-            <a href="#about">About me</a>
+    <a href="#about" data-section="about">About me</a>
 
-            <a href="#internship">Internship</a>
+    <a href="#internship" data-section="internship">Internship</a>
 
-            <a href="#projects">Projects</a>
+    <a href="#projects" data-section="projects">Projects</a>
 
-            <a href="#contacts">Contacts</a>
+    <a href="#contacts" data-section="contacts">Contacts</a>
 
-        </nav>
-
+</nav>
         <button class="hamburger" aria-label="Open navigation">
             <i class="bi bi-list"></i>
         </button>
@@ -1277,6 +1276,38 @@ if (resumeBtn) {
 
     });
 }
+
+
+/* ========================================
+   NAVIGATION WITHOUT URL HASH
+======================================== */
+
+document.querySelectorAll(".nav-links a[data-section]").forEach(link => {
+
+    link.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        const sectionId = this.dataset.section;
+        const section = document.getElementById(sectionId);
+
+        if (!section) return;
+
+        const navbarHeight = 78;
+
+        const position =
+            section.getBoundingClientRect().top +
+            window.scrollY -
+            navbarHeight;
+
+        window.scrollTo({
+            top: position,
+            behavior: "smooth"
+        });
+
+    });
+
+});
     </script>
 </body>
 
