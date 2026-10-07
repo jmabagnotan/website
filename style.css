@@ -3834,7 +3834,42 @@ body {
 
 
 
+/* ========================================
+   SERVICES + INTERNSHIP TOUCH ANIMATION
+======================================== */
 
+.service-card,
+.services-card,
+.internship-card {
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease,
+        background 0.4s ease;
+}
+
+
+/* Active animation for touch / tap */
+
+.service-card.touch-active,
+.services-card.touch-active,
+.internship-card.touch-active {
+    transform: translateY(-10px) scale(1.02);
+}
+
+
+/* ========================================
+   MOBILE / TABLET
+======================================== */
+
+@media (max-width: 1024px) {
+
+    .service-card,
+    .services-card,
+    .internship-card {
+        cursor: pointer;
+    }
+
+}
 
 
 

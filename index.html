@@ -307,7 +307,7 @@
             </article>
 
 
-            
+
             <article class="project-card" data-category="graphic-design">
                 <a href="assets/Graphic/community post.pdf" class="project-image-link" target="_blank">
                     <img src="assets/Graphic/community post.png" alt="Community Post">
@@ -1368,6 +1368,48 @@ document.querySelectorAll(".nav-links a[data-section]").forEach(link => {
             top: position,
             behavior: "smooth"
         });
+
+    });
+
+});
+
+/* ========================================
+   SERVICES + INTERNSHIP CARD TOUCH ANIMATION
+======================================== */
+
+const animatedCards = document.querySelectorAll(
+    ".service-card, .services-card, .internship-card"
+);
+
+animatedCards.forEach(card => {
+
+    /* ----------------------------------------
+       TOUCH / TAP
+    ---------------------------------------- */
+
+    card.addEventListener("touchstart", function () {
+        this.classList.add("touch-active");
+    }, { passive: true });
+
+
+    card.addEventListener("touchend", function () {
+        setTimeout(() => {
+            this.classList.remove("touch-active");
+        }, 500);
+    }, { passive: true });
+
+
+    /* ----------------------------------------
+       MOUSE CLICK
+    ---------------------------------------- */
+
+    card.addEventListener("click", function () {
+
+        this.classList.add("touch-active");
+
+        setTimeout(() => {
+            this.classList.remove("touch-active");
+        }, 500);
 
     });
 
