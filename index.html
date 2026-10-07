@@ -1414,6 +1414,28 @@ animatedCards.forEach(card => {
     });
 
 });
+
+/* ========================================
+   INTERNSHIP CARD TOUCH ANIMATION
+======================================== */
+
+document.querySelectorAll(".internship-item").forEach(card => {
+
+    card.addEventListener("touchstart", function () {
+        this.classList.add("touch-active");
+    }, {
+        passive: true
+    });
+
+    card.addEventListener("touchend", function () {
+        setTimeout(() => {
+            this.classList.remove("touch-active");
+        }, 500);
+    }, {
+        passive: true
+    });
+
+});
     </script>
 </body>
 

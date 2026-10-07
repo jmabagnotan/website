@@ -3871,6 +3871,52 @@ body {
 
 }
 
+/* ========================================
+   INTERNSHIP CARD TOUCH ANIMATION
+======================================== */
+
+.internship-item {
+    transition:
+        transform 0.5s ease-in-out,
+        box-shadow 0.2s ease-in-out;
+}
+
+/* Desktop hover + mobile touch */
+.internship-item:hover,
+.internship-item:focus-within,
+.internship-item.touch-active {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 18px rgba(128, 77, 0, 0.25);
+}
+
+
+/* Internship image animation */
+.internship-item:hover .internship-main-image,
+.internship-item:focus-within .internship-main-image,
+.internship-item.touch-active .internship-main-image {
+    transform: scale(1.08);
+    filter: brightness(0.9);
+}
+
+
+/* Make sure the image has a transition */
+.internship-main-image {
+    transition:
+        transform 0.35s ease,
+        filter 0.35s ease;
+}
+
+
+/* Mobile / touch devices */
+@media (hover: none) and (pointer: coarse) {
+
+    .internship-item {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+}
+
 
 
 
