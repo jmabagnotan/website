@@ -117,6 +117,7 @@
             </div>
 
             <a class="resume-btn" href="assets/Julie Mae Bagnotan Resume.pdf">Resume</a>
+          
 
             <div class="profile-meta">
                 <h3>Julie Mae A. Bagnotan</h3>
@@ -305,6 +306,8 @@
                 </div>
             </article>
 
+
+            
             <article class="project-card" data-category="graphic-design">
                 <a href="assets/Graphic/community post.pdf" class="project-image-link" target="_blank">
                     <img src="assets/Graphic/community post.png" alt="Community Post">
@@ -1194,87 +1197,148 @@
 
 
 
+
+        // blob project
+
+
+
+/* ========================================
+   FAST BLOB FILE OPENER
+======================================== */
+
+const blobCache = new Map();
+
+
+async function loadBlob(fileUrl) {
+    // If already loaded, use the cached Blob URL
+    if (blobCache.has(fileUrl)) {
+        return blobCache.get(fileUrl);
+    }
+
+    const response = await fetch(fileUrl);
+
+    if (!response.ok) {
+        throw new Error("Unable to load file.");
+    }
+
+    const blob = await response.blob();
+    const blobUrl = URL.createObjectURL(blob);
+
+    blobCache.set(fileUrl, blobUrl);
+
+    return blobUrl;
+}
+
+
+/* ========================================
+   PROJECT FILE LINKS
+======================================== */
+
 document.querySelectorAll(".project-image-link").forEach(link => {
+
+    const fileUrl = link.getAttribute("href");
+
+    // Preload when user hovers
+    link.addEventListener("mouseenter", () => {
+        loadBlob(fileUrl).catch(error => {
+            console.error("Project preload error:", error);
+        });
+    });
 
     link.addEventListener("click", async function (event) {
 
         event.preventDefault();
 
-        const fileUrl = this.getAttribute("href");
+        /*
+         * IMPORTANT:
+         * Open the tab FIRST.
+         * This happens immediately on the user's click.
+         */
+        const newTab = window.open("about:blank", "_blank");
+
+        if (!newTab) {
+            alert("Please allow pop-ups for this website.");
+            return;
+        }
+
+        newTab.document.title = "Opening project...";
 
         try {
 
-            const response = await fetch(fileUrl);
+            const blobUrl = await loadBlob(fileUrl);
 
-            if (!response.ok) {
-                throw new Error("Unable to load project.");
-            }
-
-            const blob = await response.blob();
-
-            const blobUrl = URL.createObjectURL(blob);
-
-            window.open(blobUrl, "_blank");
-
-            // Clean up the temporary URL later
-            setTimeout(() => {
-                URL.revokeObjectURL(blobUrl);
-            }, 60000);
+            // Send the already-open tab to the Blob URL
+            newTab.location.href = blobUrl;
 
         } catch (error) {
 
             console.error("Project loading error:", error);
 
+            newTab.close();
+
             alert("Unable to open this project.");
-
         }
-
     });
 
+    link.setAttribute("rel", "noopener noreferrer");
 });
-      
+
 
 /* ========================================
-   RESUME BLOB URL
+   RESUME
 ======================================== */
 
 const resumeBtn = document.querySelector(".resume-btn");
 
 if (resumeBtn) {
+
+    const resumeUrl = resumeBtn.getAttribute("href");
+
+    // Preload Resume when hovering
+    resumeBtn.addEventListener("mouseenter", () => {
+
+        loadBlob(resumeUrl).catch(error => {
+            console.error("Resume preload error:", error);
+        });
+
+    });
+
+
     resumeBtn.addEventListener("click", async function (event) {
 
         event.preventDefault();
 
-        const fileUrl = this.getAttribute("href");
+        /*
+         * Open immediately.
+         * Do NOT wait for fetch().
+         */
+        const newTab = window.open("about:blank", "_blank");
+
+        if (!newTab) {
+            alert("Please allow pop-ups for this website.");
+            return;
+        }
+
+        newTab.document.title = "Opening Resume...";
 
         try {
 
-            const response = await fetch(fileUrl);
+            const blobUrl = await loadBlob(resumeUrl);
 
-            if (!response.ok) {
-                throw new Error("Unable to load resume.");
-            }
-
-            const blob = await response.blob();
-
-            const blobUrl = URL.createObjectURL(blob);
-
-            window.open(blobUrl, "_blank");
-
-            // Clean up the temporary Blob URL after 60 seconds
-            setTimeout(() => {
-                URL.revokeObjectURL(blobUrl);
-            }, 60000);
+            // Open the Blob PDF inside the already-created tab
+            newTab.location.href = blobUrl;
 
         } catch (error) {
 
             console.error("Resume loading error:", error);
 
-            alert("Unable to open the resume.");
+            newTab.close();
 
+            alert("Unable to open Resume.");
         }
-
     });
+
+    resumeBtn.setAttribute("rel", "noopener noreferrer");
 }
 
 
