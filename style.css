@@ -5014,3 +5014,39 @@ footer,
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* Background image zoom interaction — all screen sizes */
+.hero > .hero-image {
+    scale: 1;
+    transition: scale 0.6s ease-in-out;
+    transform-origin: center center;
+}
+
+/* Zoom in on hover */
+.hero:hover > .hero-image {
+    scale: 1.02;
+}
+
+/* Zoom in when tapped or focused on touch devices */
+.hero:active > .hero-image,
+.hero:focus-within > .hero-image {
+    scale: 1.08;
+}
+
+/* Support reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .hero > .hero-image {
+        transition: none;
+    }
+}
