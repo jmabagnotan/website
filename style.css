@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  
 }
 
 
@@ -40,7 +41,7 @@ body {
     align-items: center;
     justify-content: space-between;
 
-    padding: 0 12%;
+    padding: 0 5%;
 
     position: fixed;
     top: 0;
@@ -3920,6 +3921,1096 @@ body {
 
 
 
+
+
+.hero {
+    width: 100%;
+    max-width: 100%;
+    height: calc(100vh - 1px);
+    min-height: 650px;
+
+    position: relative;
+    overflow: hidden;
+
+    background: #fffaf2;
+}
+
+.hero-image {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    object-fit: cover;
+    object-position: center 1%;
+
+    z-index: 0;
+}
+
+/* ========================================
+   HERO ACTIONS
+======================================== */
+
+.hero-actions {
+    position: absolute;
+
+    /*
+       Move the buttons BELOW the description.
+       Increase this value to move them lower.
+    */
+    left: 4.5%;
+    top: 67%;
+
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 35px;
+
+    animation: heroActionsIn 0.9s ease-out forwards;
+}
+
+
+/* ========================================
+   VIEW MY WORK
+======================================== */
+
+.hero-work-btn {
+
+    width: 210px;
+    height: 50px;
+
+    padding: 0 13px 0 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+margin-top: -20px;
+  background: #970008;
+    color: #ffffff;
+
+    border-radius: 60px;
+
+    text-decoration: none;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+letter-spacing: normal;
+    box-shadow: 0 12px 30px rgba(100, 0, 0, 0.18);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
+}
+
+.hero-work-btn:hover {
+    transform: translateY(-6px);
+
+    background: #7d0006;
+
+    box-shadow: 0 18px 35px rgba(100, 0, 0, 0.30);
+}
+
+
+/* ========================================
+   ROUND ARROW
+======================================== */
+
+.hero-arrow {
+    width: 35px;
+    height: 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffbf00;
+    color: #7d0006;
+
+    border-radius: 50%;
+
+    font-size: 20px;
+    font-weight: 400;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.hero-work-btn:hover .hero-arrow {
+    transform: translateX(6px);
+    background: #ffd13b;
+}
+
+/* ========================================
+   SCROLL TO EXPLORE
+======================================== */
+
+.scroll-explore {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+margin-top: -20px;
+    margin-left: 18px;
+
+    color: #a4000a;
+
+    text-decoration: none;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    transition: transform 0.3s ease;
+}
+
+.scroll-explore:hover {
+    transform: translateX(6px);
+}
+
+
+/* ========================================
+   MOUSE ICON
+======================================== */
+
+.scroll-icon {
+    width: 25px;
+    height: 35px;
+
+    border: 3px solid #a4000a;
+    border-radius: 18px;
+
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+
+    flex-shrink: 0;
+
+    animation: mouseFloat 1.8s ease-in-out infinite;
+}
+
+.scroll-wheel {
+    width: 4px;
+    height: 11px;
+
+    background: #a4000a;
+
+    border-radius: 5px;
+
+    margin-top: 7px;
+
+    animation: wheelMove 1.5s ease-in-out infinite;
+}
+
+
+/* ========================================
+   TEXT
+======================================== */
+
+.scroll-text {
+    white-space: nowrap;
+    font-size: 10px;
+}
+
+
+/* ========================================
+   MOUSE ANIMATION
+======================================== */
+
+@keyframes mouseFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+
+}
+
+
+@keyframes wheelMove {
+
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.3;
+        transform: translateY(9px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+
+/* ========================================
+   NAVBAR WORK TOGETHER BUTTON
+======================================== */
+
+.nav-work-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 193px;
+    height: 44px;
+
+    padding: 0 8px 0 20px;
+
+    background: #8f0008;
+    color: #ffffff;
+
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    box-shadow: 0 5px 15px rgba(100, 0, 0, 0.15);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Arrow circle */
+
+.nav-work-arrow {
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffbd00;
+    color: #7d0006;
+
+    border-radius: 50%;
+
+    font-size: 19px;
+    font-weight: 400;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+}
+
+
+/* Hover */
+
+.nav-work-btn:hover {
+    transform: translateY(-2px);
+
+    background: #750006;
+
+    box-shadow: 0 8px 20px rgba(100, 0, 0, 0.25);
+}
+
+.nav-work-btn:hover .nav-work-arrow {
+    transform: translateX(3px);
+    background: #ffd13b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   MOBILE / TABLET ONLY
+   DESKTOP + LAPTOP REMAIN UNCHANGED
+   ========================================================= */
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+   769px - 1100px
+   ========================================================= */
+
+@media screen and (min-width: 769px) and (max-width: 1100px) {
+
+    /* NAVBAR */
+    .navbar {
+        height: 70px;
+        padding: 0 4%;
+    }
+
+    .logo img {
+        width: 55px;
+    }
+
+    .nav-links {
+        gap: 18px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+
+    .nav-work-btn {
+        width: 155px;
+        height: 38px;
+
+        font-size: 10px;
+    }
+
+    .nav-work-arrow {
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+    }
+
+
+    /* HERO */
+    .hero {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+
+        aspect-ratio: 16 / 9;
+
+        overflow: hidden;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        object-position: center center;
+    }
+
+
+    /* HERO BUTTONS */
+    .hero-actions {
+        left: 4.5%;
+        top: 67%;
+
+        gap: 22px;
+    }
+
+    .hero-work-btn {
+        width: 220px;
+        height: 55px;
+
+        padding: 0 18px 0 28px;
+
+        font-size: 13px;
+    }
+
+    .hero-arrow {
+        width: 38px;
+        height: 38px;
+
+        font-size: 22px;
+    }
+
+    .scroll-explore {
+        gap: 12px;
+        margin-left: 10px;
+
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .scroll-icon {
+        width: 24px;
+        height: 38px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   <= 768px
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        padding-top: 70px;
+    }
+
+
+    /* -------------------------
+       NAVBAR
+    ------------------------- */
+
+    .navbar {
+        height: 70px;
+        min-height: 70px;
+
+        padding: 0 5%;
+
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 48px;
+    }
+
+    .hamburger {
+        display: flex;
+
+        width: 40px;
+        height: 40px;
+
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+
+        border: none;
+        background: transparent;
+
+        font-size: 28px;
+
+        cursor: pointer;
+    }
+
+
+    /* MOBILE NAVIGATION */
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 70px;
+        left: 0;
+
+        width: 100%;
+
+        margin: 0;
+        padding: 5px 0;
+
+        flex-direction: column;
+
+        gap: 0;
+
+        background: #ffffff;
+
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        width: 100%;
+
+        padding: 13px 6%;
+
+        font-size: 12px;
+
+        text-align: left;
+    }
+
+
+    /* LET'S WORK TOGETHER */
+
+    .nav-work-btn {
+        width: 145px;
+        height: 36px;
+
+        padding-left: 14px;
+
+        font-size: 10px;
+    }
+
+    .nav-work-arrow {
+        width: 24px;
+        height: 24px;
+
+        font-size: 16px;
+    }
+
+
+    /* -------------------------
+       HERO
+    ------------------------- */
+
+    .hero {
+        width: 100%;
+
+        height: auto;
+        min-height: 0;
+
+        aspect-ratio: 16 / 9;
+
+        overflow: hidden;
+    }
+
+    .hero-image {
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        object-position: center center;
+
+        transform: none;
+    }
+
+
+    /* -------------------------
+       HERO ACTIONS
+    ------------------------- */
+
+    .hero-actions {
+        left: 5%;
+        top: 67%;
+
+        gap: 16px;
+    }
+
+    .hero-work-btn {
+        width: 190px;
+        height: 48px;
+
+        padding-left: 22px;
+        padding-right: 8px;
+
+        font-size: 11px;
+    }
+
+    .hero-arrow {
+        width: 34px;
+        height: 34px;
+
+        font-size: 20px;
+    }
+
+    .scroll-explore {
+        gap: 9px;
+
+        margin-left: 7px;
+
+        font-size: 8px;
+
+        letter-spacing: 2px;
+    }
+
+    .scroll-icon {
+        width: 22px;
+        height: 35px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   <= 480px
+   ========================================================= */
+
+@media screen and (max-width: 480px) {
+
+    body {
+        padding-top: 55px;
+    }
+
+    .navbar {
+        height: 64px;
+        min-height: 64px;
+
+        padding: 0 4%;
+    }
+
+    .logo img {
+        width: 42px;
+    }
+
+    .hamburger {
+        width: 34px;
+        height: 34px;
+
+        font-size: 24px;
+    }
+
+
+    /* Mobile dropdown */
+
+    .nav-links {
+        top: 64px;
+    }
+
+    .nav-links a {
+        padding: 12px 6%;
+        font-size: 11px;
+    }
+
+
+    /* Work button */
+
+    .nav-work-btn {
+        width: 125px;
+        height: 32px;
+
+        padding-left: 12px;
+        padding-right: 6px;
+
+        font-size: 9px;
+    }
+
+    .nav-work-arrow {
+        width: 22px;
+        height: 22px;
+
+        font-size: 14px;
+    }
+
+
+    /* Hero */
+
+    .hero {
+        aspect-ratio: 16 / 9;
+    }
+
+    .hero-image {
+        object-fit: contain;
+        object-position: center center;
+    }
+
+
+    /* Hero buttons */
+
+    .hero-actions {
+        left: 4.5%;
+        top: 67%;
+
+        gap: 12px;
+    }
+
+    .hero-work-btn {
+        width: 155px;
+        height: 38px;
+
+        padding-left: 17px;
+        padding-right: 6px;
+
+        font-size: 9px;
+    }
+
+    .hero-arrow {
+        width: 27px;
+        height: 27px;
+
+        font-size: 16px;
+    }
+
+    .scroll-explore {
+        gap: 7px;
+
+        margin-left: 6px;
+
+        font-size: 6px;
+
+        letter-spacing: 1.5px;
+    }
+
+    .scroll-icon {
+        width: 19px;
+        height: 30px;
+
+        border-width: 2px;
+    }
+
+    .scroll-wheel {
+        width: 3px;
+        height: 7px;
+
+        margin-top: 5px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   <= 360px
+   ========================================================= */
+
+@media screen and (max-width: 360px) {
+
+    .nav-work-btn {
+        width: 112px;
+        height: 30px;
+
+        font-size: 8px;
+    }
+
+    .nav-work-arrow {
+        width: 20px;
+        height: 20px;
+
+        font-size: 13px;
+    }
+
+    .hero-actions {
+        left: 4%;
+        top: 67%;
+    }
+
+    .hero-work-btn {
+        width: 140px;
+        height: 35px;
+
+        font-size: 8px;
+    }
+
+    .hero-arrow {
+        width: 25px;
+        height: 25px;
+
+        font-size: 15px;
+    }
+
+    .scroll-explore {
+        font-size: 5px;
+        letter-spacing: 1px;
+    }
+
+}
+
+
+
+/* =========================================================
+   MOBILE ONLY
+   Hide Hero Action Elements
+   Desktop & Laptop remain unchanged
+   ========================================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* Hide Let's Work Together navbar button */
+    .nav-work-btn {
+        display: none;
+    }
+
+    /* Hide View My Work button */
+    .hero-work-btn {
+        display: none;
+    }
+
+    /* Hide mouse + Scroll to Explore */
+    .scroll-explore {
+        display: none;
+    }
+
+}
+
+
+
+
+/* ========================================
+TABLET NAVBAR FIX — 601px to 768px
+Other screen sizes remain unchanged
+======================================== */
+
+@media screen and (min-width: 601px) and (max-width: 768px) {
+
+.navbar {
+    height: 70px;
+    min-height: 70px;
+    padding: 0 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Show hamburger icon */
+.hamburger {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+/* Hide the work button on tablet */
+.nav-work-btn {
+    display: none;
+}
+
+/* Dropdown navigation */
+.nav-links {
+    display: none !important;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 5px 0;
+    background: #fff;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.nav-links.active {
+    display: flex !important;
+}
+
+.nav-links a {
+    width: 100%;
+    padding: 12px 6%;
+    font-size: 14px;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+
+}
+
+
+
+
+
+
+/* ========================================
+HERO IMAGE — RESPONSIVE POSITIONING
+Only specified screen sizes are affected
+======================================== */
+
+
+
+/* Mobile — 376px to 480px (includes 425px) */
+@media screen and (min-width: 376px) and (max-width: 480px) {
+.hero > .hero-image {
+top: 10px !important;
+bottom: 30px !important;
+height: auto !important;
+width: 100% !important;
+object-fit: cover !important;
+object-position: center top !important;
+background: white;
+}
+}
+
+/* TABLET — show the full image without cropping */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+.hero {
+height: auto !important;
+min-height: 0 !important;
+aspect-ratio: 16 / 9 !important;
+overflow: hidden;
+}
+
+.hero-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+    transform: none !important;
+}
+
+.profile-section {
+margin-top: -50px !important;
+position: relative;
+z-index: 2;
+}
+
+}
+
+/* LAPTOP — 1024px ONLY */
+@media screen and (min-width: 1000px) and (max-width: 1100px) {
+.hero {
+position: relative;
+top: -40px;
+background: white;
+}
+
+.profile-section {
+margin-top: -35px !important;
+position: relative;
+z-index: 2;
+}
+
+
+
+
+
+    /* Position both hero elements */
+    .hero .hero-actions {
+        top: 65% !important;
+        left: 4.5%;
+        gap: 30px;
+    }
+
+    /* View My Work button */
+    .hero .hero-work-btn {
+        width: 160px;
+        height: 40px;
+        padding: 0 8px 0 16px;
+        font-size: 12px;
+        box-sizing: border-box;
+    }
+
+    /* Round arrow */
+    .hero .hero-arrow {
+        width: 27px;
+        height: 27px;
+        font-size: 17px;
+        flex-shrink: 0;
+    }
+
+    /* Scroll to Explore */
+    .hero .scroll-explore {
+        gap: 10px;
+        margin-left: 12px;
+        font-size: 6px;
+        letter-spacing: 3px;
+    }
+
+    /* Mouse icon */
+    .hero .scroll-icon {
+        width: 19px;
+        height: 28px;
+        border-width: 2px;
+    
+    }
+
+    .hero .scroll-wheel {
+        width: 3px;
+        height: 9px;
+    }
+
+
+    .navbar .nav-work-btn {
+        width: 175px;
+        height: 40px;
+        padding: 0 8px 0 16px;
+        font-size: 11px;
+        box-sizing: border-box;
+        flex-shrink: 0;
+        gap: 6px;
+    }
+
+    .navbar .nav-work-arrow {
+        width: 27px;
+        height: 27px;
+        font-size: 17px;
+        flex-shrink: 0;
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* LAPTOP — 1440px ONLY */
+@media screen and (min-width: 1400px) and (max-width: 1500px) {
+
+    /* Show the entire background image */
+    .hero {
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: auto !important;
+        overflow: visible !important;
+        position: relative;
+    }
+
+    .hero .hero-image {
+        position: relative !important;
+        display: block;
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        object-position: center top !important;
+        transform: none !important;
+    }
+
+    /* Adjust the top of the profile section */
+    .profile-section {
+        margin-top: -20px !important;
+        position: relative;
+        z-index: 2;
+    }
+
+}
+
+
+
+
+
+
+
+/* =========================================================
+   WHITE BACKGROUND - ALL PAGES / SECTIONS
+   ========================================================= */
+
+html,
+body {
+    background-color: #ffffff !important;
+}
+
+main {
+    background-color: #ffffff !important;
+}
+
+/* All major sections */
+section,
+.profile-section,
+.services-section,
+.internship-section,
+.projects-section,
+.contact-section {
+    background-color: #ffffff !important;
+}
+
+/* Footer */
+footer,
+.site-footer {
+    background-color: #ffffff !important;
+}
 
 
 
